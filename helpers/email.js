@@ -11,9 +11,9 @@ exports.registerEmailParams = (email, token) => {
                   Charset: 'UTF-8',
                   Data: `
                       <html>
-                          <h1>Vefiry your email address</h1>
+                          <h1>Verify your email address</h1>
                           <p>Please use the following link to complete your registration:</p>
-                          <p>${process.env.CLIENT_URL}/auth/activate/${token}</p>
+                          <a href="${process.env.CLIENT_URL}/auth/activate/${token}">Click Here </a>
                       </html>
                   `
               }
@@ -41,7 +41,7 @@ exports.forgotPasswordEmailParams = (email, token) => {
                       <html>
                           <h1>Reset Password Link</h1>
                           <p>Please use the following link to reset your password:</p>
-                          <p>${process.env.CLIENT_URL}/auth/password/reset/${token}</p>
+                          <p><a href="${process.env.CLIENT_URL}/auth/password/reset/${token}">${process.env.CLIENT_URL}/auth/password/reset/${token}</a></p>
                       </html>
                   `
               }
@@ -67,10 +67,10 @@ exports.linkPublishedParams = (email, data) => {
                     Charset: 'UTF-8',
                     Data: `
                         <html>
-                            <h1>New link published | reactnodeaws.com</h1>
+                            <h1>New link published | TutShare.ca</h1>
                             <p>A new link titled <b>${
                                 data.title
-                            }</b> has been just publihsed in the following categories.</p>
+                            }</b> has been just published in the following categories.</p>
                             
                             ${data.categories
                                 .map(c => {
@@ -86,8 +86,8 @@ exports.linkPublishedParams = (email, data) => {
 
                             <br />
 
-                            <p>Do not with to receive notifications?</p>
-                            <p>Turn off notification by going to your <b>dashboard</b> > <b>update profile</b> and <b>uncheck the categories</b></p>
+                            <p>Do not wish to receive notifications?</p>
+                            <p>Turn off notifications by going to your <b>dashboard</b> > <b>update profile</b> and <b>uncheck the categories</b></p>
                             <p>${process.env.CLIENT_URL}/user/profile/update</p>
 
                         </html>
